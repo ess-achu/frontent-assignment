@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = ({ selected, setSelected }) => {
+const NavBar = (props) => {
+  const selected = props.selected;
+  const setSelected = props.setSelected;
+
+  const colorPicker = (current) => {
+    if (current === selected) {
+      return "white";
+    } else {
+      return "#C0BFBF";
+    }
+  };
+
   return (
     <div
       style={{
@@ -21,17 +32,20 @@ const NavBar = ({ selected, setSelected }) => {
           top: "40%",
           left: "25px",
           display: "grid",
-          rowGap:'15px'
+          rowGap: "15px",
         }}
       >
-        <Link to="/profile" style={{ textDecoration: "none" }}>
+        <Link to={"/profile/" + props.id} style={{ textDecoration: "none" }}>
           <span
             style={{
-              color: "#C0BFBF",
+              color: colorPicker('Profile'),
               fontFamily: "sans-serif",
               fontSize: "20px",
               gridRow: "1",
               marginTop: "10pxx",
+            }}
+            onClick={() => {
+              setSelected("Profile");
             }}
           >
             Profile
@@ -47,14 +61,17 @@ const NavBar = ({ selected, setSelected }) => {
           }}
         ></div>
 
-        <Link to="/posts" style={{ textDecoration: "none" }}>
+        <Link to={"/posts/" + props.id} style={{ textDecoration: "none" }}>
           <span
             style={{
-              color: "#C0BFBF",
+              color: colorPicker('Posts'),
               fontFamily: "sans-serif",
               fontSize: "20px",
               gridRow: "3",
               marginTop: "10pxx",
+            }}
+            onClick={() => {
+              setSelected("Posts");
             }}
           >
             Posts
@@ -70,14 +87,17 @@ const NavBar = ({ selected, setSelected }) => {
           }}
         ></div>
 
-        <Link to="/gallery" style={{ textDecoration: "none" }}>
+        <Link to={"/gallery/" + props.id} style={{ textDecoration: "none" }}>
           <span
             style={{
-              color: "#C0BFBF",
+              color: colorPicker('Gallery'),
               fontFamily: "sans-serif",
               fontSize: "20px",
               gridRow: "5",
               marginTop: "10px",
+            }}
+            onClick={() => {
+              setSelected("Gallery");
             }}
           >
             Gallery
@@ -93,14 +113,17 @@ const NavBar = ({ selected, setSelected }) => {
           }}
         ></div>
 
-        <Link to="/todo" style={{ textDecoration: "none" }}>
+        <Link to={"/todo/" + props.id} style={{ textDecoration: "none" }}>
           <span
             style={{
-              color: "#C0BFBF",
+              color: colorPicker('ToDo'),
               fontFamily: "sans-serif",
               fontSize: "20px",
               gridRow: "7",
               marginTop: "10px",
+            }}
+            onClick={() => {
+              setSelected("ToDo");
             }}
           >
             ToDo

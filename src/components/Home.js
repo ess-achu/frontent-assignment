@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = (props) => {
-  console.log(props.users);
-  console.log(typeof props.users);
   return (
     <div style={{ height: "100vh", width: "100%", position: "relative" }}>
       <div
@@ -47,47 +45,51 @@ const Home = (props) => {
             borderRadius: "0 0 25px 25px",
           }}
         >
-          {props.users.map((user) => (
-            <div>
-              <div
-                style={{
-                  display: "grid",
-                  alignContent: "center",
-                  alignItems: "center",
-                  margin: "15px",
-                }}
-              >
-                <img
-                  src={user.profilepicture}
+          {props.users.map((user,i) => (
+            <Link to={"/profile/" + i} key={i} style={{textDecoration:'none'}} >
+              <div>
+                <div
                   style={{
-                    width: "50px",
-                    height: "50px",
-                    borderRadius: "50%",
-                    gridColumn: "1/2",
-                    gridRow: "1",
-                  }}
-                />
-                <span
-                  style={{
-                    gridAutoColumns: "3",
-                    gridRow: "1",
-                    textAlign: "left",
-                    fontFamily: "sans-serif",
+                    display: "grid",
+                    alignContent: "center",
+                    alignItems: "center",
+                    margin: "15px",
+                    
                   }}
                 >
-                  {user.name}
-                </span>
+                  <img
+                    src={user.profilepicture}
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                      gridColumn: "1/2",
+                      gridRow: "1",
+                    }}
+                  />
+                  <span
+                    style={{
+                      gridAutoColumns: "3",
+                      gridRow: "1",
+                      textAlign: "left",
+                      fontFamily: "sans-serif",
+                      color:'gray'
+                    }}
+                  >
+                    {user.name}
+                  </span>
+                </div>
+                <div
+                  style={{
+                    background: "#f6f6ff",
+                    width: "80%",
+                    height: "2px",
+                    position: "absolute",
+                    left: "10%",
+                  }}
+                ></div>
               </div>
-              <div
-                style={{
-                  background: "#f6f6ff",
-                  width: "80%",
-                  height: "2px",
-                  position: "absolute",
-                  left: "10%",
-                }}
-              ></div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
