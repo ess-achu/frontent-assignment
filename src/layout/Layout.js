@@ -53,23 +53,10 @@ const Layout = (props) => {
                 gridRow: "1",
               }}
             />
-            <span style={{ gridRow: "1", gridColumn: "2/5", padding: "13px" }} className="dropdown" >
+            <span style={{ gridRow: "1", gridColumn: "2/5", padding: "13px" }} >
               {props.users[props.id].name}
             </span>
-            <ul>
-              <li><img
-                src={props.users[props.id].profilepicture}
-                alt=""
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  borderRadius: "50%",
-                  gridColumn: "1",
-                  gridRow: "1",
-                }}
-              /></li>
-              <li> <Link  ></Link> </li>
-            </ul>
+            
           </div>
         </div>
         <div

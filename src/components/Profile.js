@@ -4,13 +4,12 @@ import { Route, Routes, useParams } from "react-router-dom";
 import Gallery from "./Gallery";
 import Posts from "./Posts";
 import ToDo from "./ToDo";
-import {Map,Marker} from 'google-maps-react'
+import { Map, Marker } from "google-maps-react";
 
 const Profile = (props) => {
-
   const mapStyles = {
-    width: '200px',
-    height: '200px'
+    width: "200px",
+    height: "200px",
   };
 
   const params = useParams();
@@ -32,7 +31,7 @@ const Profile = (props) => {
               gridColumn: "1",
               display: "grid",
               placeItems: "center",
-              marginLeft: "100px",
+              marginLeft: "200px",
               marginTop: "150px",
             }}
           >
@@ -143,7 +142,7 @@ const Profile = (props) => {
               gridRow: "1",
               gridColumn: "2",
               marginTop: "150px",
-              marginLeft: "0px",
+              marginLeft: "-100px",
             }}
           ></div>
           <div
@@ -151,13 +150,23 @@ const Profile = (props) => {
               gridRow: "1",
               gridColumn: "3",
               display: "grid",
-              placeItems: "center",
+              placeItems: "left",
               fontFamily: "sans-serif",
               fontSize: "20px",
+              marginLeft: "-300px",
             }}
           >
-            <span style={{ textAlign: "left", color: "grey",gridRow:'1',gridColumn:'1' }}>Address :</span>
-            <table style={{gridRow:'2',gridColumn:'1'}}>
+            <table style={{ gridRow: "2", gridColumn: "1" }}>
+              <span
+                style={{
+                  textAlign: "left",
+                  color: "grey",
+                  
+                  marginTop: "100px",
+                }}
+              >
+                Address :
+              </span>
               <tbody>
                 <tr>
                   <td style={{ color: "grey", textAlign: "right" }}>Street</td>
@@ -181,7 +190,7 @@ const Profile = (props) => {
                 </tr>
               </tbody>
             </table>
-            <div style={{gridRow:'3',gridColumn:'1'}} ></div>
+            <div style={{ gridRow: "3", gridColumn: "1" }}></div>
           </div>
         </div>
       </div>
